@@ -1,0 +1,309 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+   "http://www.w3.org/TR/html4/loose.dtd">
+   
+<html>
+<head>
+
+<title>Mastering Machine Code on Your ZX81 or ZX80 by Toni Baker</title>
+
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<meta name="description" content="Mastering Machine Code on Your ZX81 or ZX80 by Toni Baker; Published by Reston Publishing Company 1981.">
+<meta name="keywords" content="Mastering Machine Code on Your ZX81 or ZX80, Toni Baker, Reston Publishing Company, thunor">
+
+<link href="css/main.css" rel="stylesheet" type="text/css">
+<script language="JavaScript" src="javascript/functions.js" type="text/javascript"></script>
+
+</head>
+
+<body>
+		
+	<table width="100%" class="pageouter" cellpadding="0px" cellspacing="10px">
+		<tr>
+			<td>
+				<table width="100%" class="page" cellpadding="0px" cellspacing="0px">
+					<tr>
+<!-- This is the banner vvvv -->	
+						<td>
+							<table width="100%" class="banner" cellpadding="0px" cellspacing="0px">
+								<tr>
+									<td width="99%">&nbsp;<a href="http://www.thunor.org.uk">MMCoYZX81</a>: DUMP
+									</td>
+									<td width="1%">
+										<img src="images/logo.gif" alt="logo" width="48px" height="48px">
+									</td>
+								</tr>	
+							</table>
+						</td>
+<!-- This is the banner ^^^^ -->	
+					</tr>	
+					<tr>
+						<td>
+							<table width="100%" class="pageinner" cellpadding="0px" cellspacing="0px">
+								<tr>
+									<td width="1px" class="bannermainmenubridge"></td>
+									<td width="1px" class="bannerlocalmenubridge"></td>
+<!-- This is the local menu vvvv -->	
+									<td class="localmenu"></td>
+<!-- This is the local menu ^^^^ -->	
+								</tr>	
+								<tr>
+									<td></td>
+									<td></td>
+									<td>&nbsp;</td>
+								</tr>	
+								<tr>
+<!-- This is the main menu vvvv -->	
+									<td valign="top">
+										<script language="JavaScript" type="text/javascript">
+											<!-- 
+											document.write("<table width='200px' cellpadding='0px' cellspacing='0px'>");
+											document.write("<tr><td>");
+											mainmenuwrite('dump');
+											document.write("<\/td><\/tr><\/table>");
+											// -->
+										</script>
+									</td>
+<!-- This is the main menu ^^^^ -->	
+									<td>
+										<script language="JavaScript" type="text/javascript">
+											<!-- 
+											document.write("<img src='images/blank1x1.gif' alt='blank1x1' style='border:0;height:1px;width:10px'>");
+											// -->
+										</script>
+									</td>
+<!-- This is the content vvvv -->	
+									<td valign="top">
+										<table width="100%" class="content" cellpadding="0px" cellspacing="10px">
+											<tr>
+												<td>
+													<table width="100%" cellpadding="0px" cellspacing="0px">
+														<tr>
+															<td>
+																<div class="contentjsforidx">
+																	<script language="JavaScript" type="text/javascript">
+																		<!-- 
+																		document.write("-JavaScript = -index");
+																		// -->
+																	</script>
+																	<noscript>+JavaScript = +index</noscript>
+																</div>
+<!-- This is the content navigation vvvv -->	
+																<table align="center" cellpadding="0px" cellspacing="10px">
+																	<tr>
+																		<td><a href="sif-lenslist2.html">Previous</a></td>
+																		<td>|</td>
+																		<td><a href="index.html">Contents</a></td>
+																		<td>|</td>
+																		<td><a href="sif-hexld3e.html">Next</a></td>
+																	</tr>
+																</table>
+<!-- This is the content navigation ^^^^ -->	
+																<h1 align="center">DUMP</h1>
+																<h3 align="center">NEW ROM</h3>
+																<p>This program can dump memory in hex or Sinclair character codes or a combination of both. There's not a lot to it but it's really useful and is a by-product of work I'm doing elsewhere and I thought it would be a nice little program for machine code students to play around with.</p>
+																<table align="center" cellpadding="0px" cellspacing="0px">
+																	<tr>
+																		<td>
+<pre>
+<u>Program Organisation</u>
+This should be written with HEXLD3D (<a href="dload/chapter11-hexld3d.p">chapter11-hexld3d.p</a>)
+which has its machine code located between 4A82 and 4B77
+(RAMTOP should be set to 4A00). As <a href="sif-lenslist2.html">LENSLIST2</a> is basically
+HEXLD3D+LENSLIST2 you could use that instead as it's
+better for checking code and tracking down errors.
+
+This should be written to a line 1 REM statement of size
+151 characters, although I always add a few more just in
+case a key press doesn't register properly.
+
+I've placed a few spares bytes in the initial type check
+so that you can JP to the bottom and add your own types
+if you feel adventurous.
+
+<u>Program Listing</u>
+4082: 0000      ADDRESS   DEFB 00 00
+4084: 00        DUMPTYPE  DEFB 00
+4085: F5        HPRINT    PUSH AF
+      E6F0                AND F0
+      1F                  RRA
+      1F                  RRA
+      1F                  RRA
+      1F                  RRA
+      C61C                ADD A,1C
+      D7                  RST 10
+      F1                  POP AF
+      E60F                AND 0F
+      C61C                ADD A,1C
+      D7                  RST 10
+      C9                  RET
+20 bytes.
+
+4096: 2A8240    DUMP      LD HL,(ADDRESS)
+      7C                  LD A,H
+      CD8540              CALL HPRINT
+      7D                  LD A,L
+      CD8540              CALL HPRINT
+      AF                  XOR A
+      D7                  RST 10
+      3A8440              LD A,(DUMPTYPE)
+      FE00                CP 00
+      2814                JR Z,DUMPTYPE0
+40AA: FE03                CP 03
+      281D                JR Z,DUMPTYPE1
+40AE: FEF5                CP F5
+      282F                JR Z,DUMPTYPE2
+40B2: FEF6                CP F6
+      2847                JR Z,DUMPTYPE3
+40B6: 00 * 8    NOPS      DEFB 00 * 8        Spare.
+40 bytes.
+
+40BE: 0608      DUMPTYPE0 LD B,08
+      7E        DT0LOOP   LD A,(HL)
+      CD8540              CALL HPRINT
+      AF                  XOR A
+      D7                  RST 10
+      23                  INC HL
+      10F7                DJNZ DT0LOOP
+40C9: 180D                JR END
+13 bytes.
+
+40CB: 0618      DUMPTYPE1 LD B,18
+      7E        DT1LOOP   LD A,(HL)
+      CB77                BIT 6,A
+      2802                JR Z,PRINTABLE
+      3E1B                LD A,1B
+      D7        PRINTABLE RST 10
+      23                  INC HL
+      10F5                DJNZ DT1LOOP
+13 bytes.
+
+40D8: 3E75      END       LD A,75
+      3C                  INC A
+      D7                  RST 10
+      228240              LD (ADDRESS),HL
+      18B5                JR DUMP
+9 bytes.
+
+40E1: 0606      DUMPTYPE2 LD B,06
+      C5                  PUSH BC
+      E5                  PUSH HL
+      7E        DT2LOOP1  LD A,(HL)
+      CD8540              CALL HPRINT
+      AF                  XOR A
+      D7                  RST 10
+      23                  INC HL
+      10F7                DJNZ DT2LOOP1
+      E1                  POP HL
+      C1                  POP BC
+40F0: 7E        DT2LOOP2  LD A,(HL)
+      CB77                BIT 6,A
+      2802                JR Z,PRINTABLE
+      3E1B                LD A,1B
+      D7        PRINTABLE RST 10
+      23                  INC HL
+      10F5                DJNZ DT2LOOP2
+40FB: 18DB                JR END
+28 bytes.
+
+40FD: 0608      DUMPTYPE3 LD B,08
+      C5                  PUSH BC
+      E5                  PUSH HL
+      7E        DT3LOOP1  LD A,(HL)
+      CD8540              CALL HPRINT
+      23                  INC HL
+      10F9                DJNZ DT3LOOP1
+      AF                  XOR A
+      D7                  RST 10
+      E1                  POP HL
+      C1                  POP BC
+410C: 7E        DT3LOOP2  LD A,(HL)
+      CB77                BIT 6,A
+      2802                JR Z,PRINTABLE
+      3E1B                LD A,1B
+      D7        PRINTABLE RST 10
+      23                  INC HL
+      10F5                DJNZ DT3LOOP2
+4117: 18BF                JR END
+28 bytes.
+
+Total 151 bytes.
+
+<u>The BASIC Part</u>
+Once you've finished entering the machine code above,
+delete all the BASIC lines except the line 1 REM
+statement and then add these lines:
+
+ 10 CLS
+ 20 PRINT "TYPE M/P/B/C AND AN ADDRESS E.G." 
+ 30 PRINT "M407D. Q QUITS, CONT CONTINUES."
+ 40 INPUT A$
+ 50 IF A$(1)="M" OR A$(1)="P" OR A$(1)="B"
+    OR A$(1)="C" THEN GOTO 70
+ 60 STOP
+ 70 POKE 16516,(CODE A$(1))-50
+ 80 POKE 16515,16*CODE A$(2)+CODE A$(3)-476
+ 90 POKE 16514,16*CODE A$(4)+CODE A$(5)-476
+100 RAND USR 16534
+
+Don't forget to manually type SAVE "DUMP" as there's
+no fancy save option anymore.
+
+<u>Operating Instructions</u>
+Type RUN and follow the instructions within the program.
+</pre>
+																		</td>
+																	</tr>
+																</table>
+																<p>Download available for 16K ZX81 -> <a href="dload/sif-dump.p">sif-dump.p</a></p>
+<!-- This is the content navigation vvvv -->	
+																<table align="center" cellpadding="0px" cellspacing="10px">
+																	<tr>
+																		<td><a href="sif-lenslist2.html">Previous</a></td>
+																		<td>|</td>
+																		<td><a href="index.html">Contents</a></td>
+																		<td>|</td>
+																		<td><a href="sif-hexld3e.html">Next</a></td>
+																	</tr>
+																</table>
+<!-- This is the content navigation ^^^^ -->	
+															</td>
+														</tr>
+													</table>
+												</td>
+											</tr>
+										</table>
+<!-- This is the icon links vvvv -->	
+<!-- This is the icon links ^^^^ -->	
+									</td>
+<!-- This is the content ^^^^ -->	
+								</tr>	
+							</table>
+						</td>
+					</tr>	
+					<tr>	
+						<td>&nbsp;</td>
+					</tr>	
+					<tr>	
+<!-- This is the copyright line vvvv -->	
+						<td>
+							<table width="100%" class="copyright" cellpadding="0px" cellspacing="5px">
+								<tr>
+									<td><a href="mailto:thunorsif@hotmail.com">Thunor</a> 2009-2011
+									</td>
+								</tr>	
+							</table>
+						</td>
+<!-- This is the copyright line ^^^^ -->	
+					</tr>	
+				</table>
+			</td>
+		</tr>	
+	</table>
+
+</body>
+</html>
+
+

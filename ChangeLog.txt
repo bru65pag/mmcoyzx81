@@ -1,0 +1,94 @@
+2011-02-16 Thunor <thunorsif (at) hotmail.com>
+* 0.1.9 released
+* Changed "Beyond the Book" to "Finishing the Book"
+* Extracted the ZX80 programs and appended .o extensions.
+* Modified the colour scheme and the logo.
+* Updated "Some Very Useful Links".
+
+2009-11-23 Thunor <thunorsif (at) hotmail.com>
+* 0.1.8 released
+* Changed ~~~~~ to ~~ in appendix five to help keep
+  everything aligned when the page is shrunk/zoomed out.
+* Finished DISASM.
+
+2009-11-04 Thunor <thunorsif (at) hotmail.com>
+* 0.1.7 released
+* Added two more dump types to sif-dump.p
+* Updated the disassembler algorithm 1 in chapter 16 and
+  listed its main deficiency and offered ideas on fixing it.
+* This is only a minor release but I want to get it out as
+  I'm now going to spend some time finishing DISASM.
+
+2009-10-29 Thunor <thunorsif (at) hotmail.com>
+* 0.1.6 released
+* Integrated LENSLIST2 and DUMP into HEXLD3E.
+* Added an HEXLD3E page with BASIC listing (m/c is elsewhere).
+* Removed sif-dump.p as it's now part of HEXLD3E.
+* Standalone sif-dumpalt.p is now sif-dump.p.
+* Reordered the pages Beyond the Book.
+
+2009-10-27 Thunor <thunorsif (at) hotmail.com>
+* 0.1.5 released
+* Reorganised the latter part of the book so that there is a
+  clear distinction between the end of Toni's work and the
+  beginning of my additional work. If I was only adding little
+  bits it wouldn't matter, but I'm adding huge programs such as
+  the disassembler and these programs need their own pages and
+  won't all fit in one appendix.
+* farewell moved to its correct place after appendix06.
+* appendix08 has become downloads.
+* Beyond the Book:
+* Renamed misc-*.p to sif-*.p
+* appendix07 has become sif-lenslist2.
+* Added sif-dump.html, sif-dump.p and sif-dumpalt.p.
+* Added sif-disasm.html.
+* Added some non-breaking spaces in downloads.html where the text
+  begins with words smaller than This so that small screens don't
+  leave I and A to the right of screenshots.
+* Modified the logo a little.
+* Updated COPYING.txt.
+
+2009-10-26 Thunor <thunorsif (at) hotmail.com>
+* 0.1.4 released
+* Added HEXLD3E, a version of HEXLD3D that's been relocated to
+  6400h; my current base program for the chapter 16 disassembler
+  and beyond.
+* Added some comments to the chapter 16 disassembler algorithm to
+  make it clearer. Also updated the initial part to validate
+  prefixes.
+* Added DUMP and DUMPALT, a simple little program that dumps
+  memory using two different formats: hex or Sinclair character
+  codes, but very useful and very fast.
+
+2009-10-19 Thunor <thunorsif (at) hotmail.com>
+* 0.1.3 released
+* Cleared up some ambiguities regarding HEXLD3 and HEXLD3D.
+* Changed all of the "thunor.org.uk"s within the banners to
+  MMCoYZX81 as they were overkill and a result of my copying
+  and pasting to create new pages. The URLs still work though.
+* Modified my foreword slightly.
+* Added an icon next to all external links which appears as
+  "(->)" in text browsers.
+* Identified to the reader the place holders used within the
+  disassembler algorithm in chapter 16.
+* Appended the ISBN number to the book's title in Contents.
+
+2009-10-13 Thunor <thunorsif (at) hotmail.com>
+* 0.1.2 released
+* Added feature whereby entire left-hand side index disappears
+  when JavaScript is disabled to maximise screen width.
+* For the online version: placed all web icons along screen bottom.
+* For the offline version: removed all web icons.
+* Modified the licence covering my own source code in appendix seven.
+* Created a new logo that's displayed in the banner.
+* The offline version package is now located in appendix 8 and is
+  linked to from the contents.
+* Added WOS/RWAP forum links in forewordthunor.html.
+
+2009-10-11 Thunor <thunorsif (at) hotmail.com>
+* 0.1.1 released
+* Added COPYING.txt as it was missing
+
+2009-10-11 Thunor <thunorsif (at) hotmail.com>
+* 0.1.0 released
+* Initial release

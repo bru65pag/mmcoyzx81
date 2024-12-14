@@ -1,0 +1,364 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+   "http://www.w3.org/TR/html4/loose.dtd">
+   
+<html>
+<head>
+
+<title>Mastering Machine Code on Your ZX81 or ZX80 by Toni Baker</title>
+
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<meta name="description" content="Mastering Machine Code on Your ZX81 or ZX80 by Toni Baker; Published by Reston Publishing Company 1981.">
+<meta name="keywords" content="Mastering Machine Code on Your ZX81 or ZX80, Toni Baker, Reston Publishing Company, thunor">
+
+<link href="css/main.css" rel="stylesheet" type="text/css">
+<script language="JavaScript" src="javascript/functions.js" type="text/javascript"></script>
+
+</head>
+
+<body>
+		
+	<table width="100%" class="pageouter" cellpadding="0px" cellspacing="10px">
+		<tr>
+			<td>
+				<table width="100%" class="page" cellpadding="0px" cellspacing="0px">
+					<tr>
+<!-- This is the banner vvvv -->	
+						<td>
+							<table width="100%" class="banner" cellpadding="0px" cellspacing="0px">
+								<tr>
+									<td width="99%">&nbsp;<a href="http://www.thunor.org.uk">MMCoYZX81</a>: HEXLD3E
+									</td>
+									<td width="1%">
+										<img src="images/logo.gif" alt="logo" width="48px" height="48px">
+									</td>
+								</tr>	
+							</table>
+						</td>
+<!-- This is the banner ^^^^ -->	
+					</tr>	
+					<tr>
+						<td>
+							<table width="100%" class="pageinner" cellpadding="0px" cellspacing="0px">
+								<tr>
+									<td width="1px" class="bannermainmenubridge"></td>
+									<td width="1px" class="bannerlocalmenubridge"></td>
+<!-- This is the local menu vvvv -->	
+									<td class="localmenu"></td>
+<!-- This is the local menu ^^^^ -->	
+								</tr>	
+								<tr>
+									<td></td>
+									<td></td>
+									<td>&nbsp;</td>
+								</tr>	
+								<tr>
+<!-- This is the main menu vvvv -->	
+									<td valign="top">
+										<script language="JavaScript" type="text/javascript">
+											<!-- 
+											document.write("<table width='200px' cellpadding='0px' cellspacing='0px'>");
+											document.write("<tr><td>");
+											mainmenuwrite('hexld3e');
+											document.write("<\/td><\/tr><\/table>");
+											// -->
+										</script>
+									</td>
+<!-- This is the main menu ^^^^ -->	
+									<td>
+										<script language="JavaScript" type="text/javascript">
+											<!-- 
+											document.write("<img src='images/blank1x1.gif' alt='blank1x1' style='border:0;height:1px;width:10px'>");
+											// -->
+										</script>
+									</td>
+<!-- This is the content vvvv -->	
+									<td valign="top">
+										<table width="100%" class="content" cellpadding="0px" cellspacing="10px">
+											<tr>
+												<td>
+													<table width="100%" cellpadding="0px" cellspacing="0px">
+														<tr>
+															<td>
+																<div class="contentjsforidx">
+																	<script language="JavaScript" type="text/javascript">
+																		<!-- 
+																		document.write("-JavaScript = -index");
+																		// -->
+																	</script>
+																	<noscript>+JavaScript = +index</noscript>
+																</div>
+<!-- This is the content navigation vvvv -->	
+																<table align="center" cellpadding="0px" cellspacing="10px">
+																	<tr>
+																		<td><a href="sif-dump.html">Previous</a></td>
+																		<td>|</td>
+																		<td><a href="index.html">Contents</a></td>
+																		<td>|</td>
+																		<td><a href="sif-disasm.html">Next</a></td>
+																	</tr>
+																</table>
+<!-- This is the content navigation ^^^^ -->
+																<h1 align="center">HEXLD3E</h1>
+																<h3 align="center">NEW ROM</h3>
+																<p>This is a version of HEXLD3D that has been relocated from 4A00 to 6400h, includes both LENSLIST2 and DUMP and runs from a menu system.</p>
+																<table align="center" cellpadding="0px" cellspacing="0px">
+																	<tr>
+																		<td>
+<pre>
+<u>Program Organisation</u>
+I am only going to detail the structure of HEXLD3E as
+the machine code has been written elsewhere. I'm not
+actually going to explain in depth how to put this
+together as it's quite a laborious task, so I recommend
+that you download my version towards the bottom of the
+page to save yourself a potential headache :)
+
+If you've not used any of the previous hex loaders
+before, then I shall explain how it works: HEXLD3E's
+machine code is held within an array and restored on
+load to 6400h. The user appends his/her machine code
+to HEXLD3E's at 6738h (LIMIT marks the end of the code
+and is automatically updated when writing beyond 6737h)
+and the user selects SAVE from the menu to save the
+entire program. 6400h gives a good balance between
+memory space for the BASIC area and machine code above
+RAMTOP. So before loading this program you'll need to
+set RAMTOP to 6400h and type NEW.
+
+Following are the differences between this and the last
+hex loader (HEXLD3D):
+* Relocation from 4A00 to 6400h (much more space below).
+* The inclusion of LENSLIST2 (great for checking code).
+* The inclusion of DUMP (great for checking data).
+* A menu system (much simpler than typing RUN xxx).
+
+<u>Decimal</u>  <u>Hex</u>     <u>Routine/Variable</u>
+<a href="appendix01.html">HEXLD3</a>:
+25600    6400    HPRINT
+25617    6411    BEGIN
+25619    6413    ADDRESS
+25621    6415    ADD2
+25623    6417    LIMIT
+25625    6419    HLIST
+25675    644B    WRITE
+25721    6479    ARRAY
+25737    6489    STORE
+25755    649B    RETRIEVE
+25773    64AD    INSERT
+25818    64DA    DELETE
+246 bytes.
+
+<a href="sif-lenslist2.html">LENSLIST2</a>:
+25846    64F6    LENS
+26102    65F6    LLIST2
+427 bytes.
+
+<a href="sif-dump.html">DUMP</a> (linked version includes additional types):
+26273    66A1    ADDRESS
+26275    66A3    DUMPTYPE
+26276    66A4    DUMP
+26296    66B8    DUMPTYPE0
+26309    66C5    DUMPTYPE1
+58 bytes.
+
+26331    66DB    SPRINT
+26343    66E7    PRTSTATS
+93 bytes.
+
+Total 824 bytes.
+
+<u>Program Listing</u>
+; This is new so I'll list it here. It simply prints
+; some useful information about the saved machine
+; code size and where the approaching STKEND is.
+
+66DB: E1        SPRINT    POP HL
+      7E                  LD A,(HL)
+      23                  INC HL
+      E5                  PUSH HL
+      FEFF                CP FF
+      C8                  RET Z
+      CD0808              CALL PRINT
+      18F4                JR SPRINT
+66E7: CDDB66    PRTSTATS  CALL SPRINT         
+      3839302A332914FF    DEFM "STKEND=",FF
+      2A1C40              LD HL,(STKEND)
+      7C                  LD A,H
+      CD0064              CALL HPRINT
+      7D                  LD A,L
+      CD0064              CALL HPRINT
+      3E2D                LD A,'H'
+      D7                  RST 10
+      3E75                LD A,75
+      3C                  INC A
+      D7                  RST 10
+      CDDB66              CALL SPRINT         
+      2D2A3D31291F2A14FF  DEFM "HEXLD3E=",FF
+      2A1164              LD HL,(BEGIN)
+      7C                  LD A,H
+      CD0064              CALL HPRINT
+      7D                  LD A,L
+      CD0064              CALL HPRINT
+      CDDB66              CALL SPRINT         
+      2D00393400FF        DEFM "H TO ",FF
+      2A1764              LD HL,(LIMIT)
+      2B                  DEC HL
+      7C                  LD A,H
+      CD0064              CALL HPRINT
+      7D                  LD A,L
+      CD0064              CALL HPRINT
+      3E2D                LD A,'H'
+      D7                  RST 10
+      3E75                LD A,75
+      3C                  INC A
+      D7                  RST 10
+      C9                  RET
+
+<u>The BASIC Part</u>
+Remove all of HEXLD3D's BASIC lines and add the following:
+
+  10 CLS
+  20 PRINT "HEXLD3E"          Inverse characters.
+  30 PRINT
+  50 PRINT "M. DUMP HEX"
+  60 PRINT "P. DUMP SINCLAIR"
+  70 PRINT "N. LENSLIST2"
+  80 PRINT "L. LIST"
+  90 PRINT "W. WRITE"
+ 100 PRINT "I. INSERT"
+ 110 PRINT "D. DELETE"
+ 120 PRINT "S. SAVE"
+ 130 PRINT "Q. QUIT"
+ 140 PRINT "PRESS A LETTER"
+ 150 PRINT
+ 160 IF INKEY$<"0" OR INKEY$>"Z" THEN GOTO 160
+ 170 GOTO ((CODE INKEY$)-26)*100
+1499 STOP
+1500 GOSUB 3900
+1510 PRINT "DELETE START";
+1520 GOSUB 3800
+1530 LET A=25621
+1540 PRINT "DELETE END";
+1550 GOSUB 3810
+1560 RAND USR 25818           CALL DELETE
+1999 STOP
+2000 GOSUB 3900
+2010 PRINT "INSERT";
+2020 GOSUB 3800
+2030 INPUT A$
+2040 PRINT A$;"  ";
+2050 RAND USR 25773           CALL INSERT
+2060 GOTO 2030
+2299 STOP
+2300 GOSUB 4000
+2310 PRINT "LIST";
+2320 GOSUB 3800
+2330 RAND USR 25625           CALL HLIST
+2400 POKE 26275,0
+2410 GOSUB 4000
+2420 PRINT "DUMP";
+2430 GOSUB 3800
+2460 RAND USR 26276           CALL DUMP
+2499 STOP
+2500 GOSUB 4000
+2510 PRINT "LENSLIST2";
+2520 GOSUB 3800
+2530 RAND USR 26102           CALL LLIST2
+2699 STOP
+2700 POKE 26275,1
+2710 GOTO 2410
+2999 STOP
+3000 DIM 0$(USR 25721)        CALL ARRAY
+3010 RAND USR 26343           CALL PRTSTATS
+3020 RAND USR 25737           CALL STORE
+3030 SAVE "HEXLD3E"
+3040 LET A=PEEK 16400+PEEK 16401*256
+3050 POKE 25617,PEEK (A+6+17)
+3051 POKE 25618,PEEK (A+6+18)
+3052 POKE 25621,PEEK (A+6+21)
+3053 POKE 25622,PEEK (A+6+22)
+3054 RAND USR (A+6+155)       CALL RETRIEVE
+3060 CLEAR
+3399 STOP
+3400 GOSUB 3900
+3410 PRINT "WRITE";
+3420 GOSUB 3800
+3430 INPUT A$
+3440 PRINT A$;"  ";
+3450 RAND USR 25675           CALL WRITE
+3460 GOTO 3430
+3799 STOP
+3800 LET A=25619
+3810 PRINT " ADDRESS: ";
+3820 INPUT A$
+3830 PRINT A$
+3840 POKE A+1,16*CODE A$+CODE A$(2)-476
+3850 POKE A,16*CODE A$(3)+CODE A$(4)-476
+3860 CLEAR
+3870 RETURN
+3900 CLS
+3910 PRINT """"" TO QUIT."
+3920 RETURN
+4000 GOSUB 3900
+4010 PRINT "CONT FOR MORE."
+4020 RETURN
+
+<u>Operating Instructions</u>
+Type RUN to use HEXLD3E's menu system.
+</pre>
+																		</td>
+																	</tr>
+																</table>
+																<p>Download available for 16K ZX81 -> <a href="dload/sif-hexld3e.p">sif-hexld3e.p</a></p>
+<!-- This is the content navigation vvvv -->	
+																<table align="center" cellpadding="0px" cellspacing="10px">
+																	<tr>
+																		<td><a href="sif-dump.html">Previous</a></td>
+																		<td>|</td>
+																		<td><a href="index.html">Contents</a></td>
+																		<td>|</td>
+																		<td><a href="sif-disasm.html">Next</a></td>
+																	</tr>
+																</table>
+<!-- This is the content navigation ^^^^ -->	
+															</td>
+														</tr>
+													</table>
+												</td>
+											</tr>
+										</table>
+<!-- This is the icon links vvvv -->	
+<!-- This is the icon links ^^^^ -->	
+									</td>
+<!-- This is the content ^^^^ -->	
+								</tr>	
+							</table>
+						</td>
+					</tr>	
+					<tr>	
+						<td>&nbsp;</td>
+					</tr>	
+					<tr>	
+<!-- This is the copyright line vvvv -->	
+						<td>
+							<table width="100%" class="copyright" cellpadding="0px" cellspacing="5px">
+								<tr>
+									<td><a href="mailto:thunorsif@hotmail.com">Thunor</a> 2009-2011
+									</td>
+								</tr>	
+							</table>
+						</td>
+<!-- This is the copyright line ^^^^ -->	
+					</tr>	
+				</table>
+			</td>
+		</tr>	
+	</table>
+
+</body>
+</html>
+
+

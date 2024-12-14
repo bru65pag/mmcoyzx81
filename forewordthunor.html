@@ -1,0 +1,215 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+   "http://www.w3.org/TR/html4/loose.dtd">
+   
+<html>
+<head>
+
+<title>Mastering Machine Code on Your ZX81 or ZX80 by Toni Baker</title>
+
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<meta name="description" content="Mastering Machine Code on Your ZX81 or ZX80 by Toni Baker; Published by Reston Publishing Company 1981.">
+<meta name="keywords" content="Mastering Machine Code on Your ZX81 or ZX80, Toni Baker, Reston Publishing Company, thunor">
+
+<link href="css/main.css" rel="stylesheet" type="text/css">
+<script language="JavaScript" src="javascript/functions.js" type="text/javascript"></script>
+
+</head>
+
+<body>
+		
+	<table width="100%" class="pageouter" cellpadding="0px" cellspacing="10px">
+		<tr>
+			<td>
+				<table width="100%" class="page" cellpadding="0px" cellspacing="0px">
+					<tr>
+<!-- This is the banner vvvv -->	
+						<td>
+							<table width="100%" class="banner" cellpadding="0px" cellspacing="0px">
+								<tr>
+									<td width="99%">&nbsp;<a href="http://www.thunor.org.uk">MMCoYZX81</a>: Thunor's Foreword
+									</td>
+									<td width="1%">
+										<img src="images/logo.gif" alt="logo" width="48px" height="48px">
+									</td>
+								</tr>	
+							</table>
+						</td>
+<!-- This is the banner ^^^^ -->	
+					</tr>	
+					<tr>
+						<td>
+							<table width="100%" class="pageinner" cellpadding="0px" cellspacing="0px">
+								<tr>
+									<td width="1px" class="bannermainmenubridge"></td>
+									<td width="1px" class="bannerlocalmenubridge"></td>
+<!-- This is the local menu vvvv -->	
+									<td class="localmenu"></td>
+<!-- This is the local menu ^^^^ -->	
+								</tr>	
+								<tr>
+									<td></td>
+									<td></td>
+									<td>&nbsp;</td>
+								</tr>	
+								<tr>
+<!-- This is the main menu vvvv -->	
+									<td valign="top">
+										<script language="JavaScript" type="text/javascript">
+											<!-- 
+											document.write("<table width='200px' cellpadding='0px' cellspacing='0px'>");
+											document.write("<tr><td>");
+											mainmenuwrite('forewordthunor');
+											document.write("<\/td><\/tr><\/table>");
+											// -->
+										</script>
+									</td>
+<!-- This is the main menu ^^^^ -->	
+									<td>
+										<script language="JavaScript" type="text/javascript">
+											<!-- 
+											document.write("<img src='images/blank1x1.gif' alt='blank1x1' style='border:0;height:1px;width:10px'>");
+											// -->
+										</script>
+									</td>
+<!-- This is the content vvvv -->	
+									<td valign="top">
+										<table width="100%" class="content" cellpadding="0px" cellspacing="10px">
+											<tr>
+												<td>
+													<table width="100%" cellpadding="0px" cellspacing="0px">
+														<tr>
+															<td>
+																<div class="contentjsforidx">
+																	<script language="JavaScript" type="text/javascript">
+																		<!-- 
+																		document.write("-JavaScript = -index");
+																		// -->
+																	</script>
+																	<noscript>+JavaScript = +index</noscript>
+																</div>
+<!-- This is the content navigation vvvv -->	
+																<table align="center" cellpadding="0px" cellspacing="10px">
+																	<tr>
+																		<td><a href="index.html">Previous</a></td>
+																		<td>|</td>
+																		<td><a href="index.html">Contents</a></td>
+																		<td>|</td>
+																		<td><a href="foreword.html">Next</a></td>
+																	</tr>
+																</table>
+<!-- This is the content navigation ^^^^ -->	
+																<h1 align="center">Thunor's Foreword</h1>
+																<p>When I was young I would drool over magazine adverts for the ZX80 and ZX81 and eventually persuaded my parents to buy me a ZX81, followed by a 16K RAM pack. I would hog the TV playing with BASIC and wrote a snazzy fruit machine program that took 2 hours to type in (I didn't have a suitable tape deck to save/load programs). What I didn't do was learn Z80 assembly and how to write machine code programs, although I did eventually embrace 8086 assembly which got me my first job in computing. Now that I'm older and have the opportunity to do so, I would like to complete my experience of the ZX81 and write some games in machine code and I found this wonderful book via <a href="http://www.worldofspectrum.org/infoseekid.cgi?id=2000236">World of Spectrum <img src='images/external.gif' alt='(-&gt;)' style='border:0;height:10px;width:10px'></a>. Unfortunately it's a PDF where each page is an image of the original, which is acceptable for a desktop computer but I like to read books on portable devices in comfy chairs or in bed, and so I've decided to convert this book to HTML whilst reading and learning from it.</p>
+																<p>Seeing as this book is a freely downloadable PDF and is very unlikely to experience another print run, I'm not expecting anyone to object although I and everyone else should acknowledge that it is a copyrighted work. What I found particularly poignant when transcribing this material is that Tim Hartnell -- <a href="http://en.wikipedia.org/wiki/Tim_Hartnell">an extremely prolific, bestselling author of books and magazines <img src='images/external.gif' alt='(-&gt;)' style='border:0;height:10px;width:10px'></a> -- who wrote the foreword, died of cancer in 1991 aged 40.</p>
+																<p>As far as my transcription goes, I've accomplished the following:</p>
+																<ul>
+																	<li>Corrected spelling mistakes and Anglicised the English.</li>
+																	<li>Proof-read each paragraph or block at transcription time to minimise errors.</li>
+																	<li>Removed surplus words and erroneous information using <del>strikethrough</del>.</li>
+																	<li>Added missing words, corrections and additional information [within square brackets] with the following exceptions:
+																		<ul>
+																			<li>When adding corrections to program listings (I don't want to introduce characters into code listings) although it is quite clear that my corrected code follows the erroneous code, and in some cases I've added a comment.</li>
+																			<li>When the whole document is an addition (such as the page you are currently reading or appendix six) although there will be a comment or something obvious that indicates the document originates with me.</li>
+																		</ul>
+																	</li>
+																	<li>Conventionalised the instruction listings throughout the first half of the book by showing the hex-code on the left of the instruction to avoid confusion with operands.</li>
+																	<li>Typed-in the programs for the ZX81 (and some for the ZX80) using the <a href="http://www.svgalib.org/rus/z81.html">z81 emulator <img src='images/external.gif' alt='(-&gt;)' style='border:0;height:10px;width:10px'></a>, fixing bugs where time, scope and willingness allowed and offered the programs for download.</li>
+																	<li>Added comments using this format: [Thunor: This is a comment about something important.].</li>
+																	<li>Added links to program downloads using this format: [Download available for 16K ZX81 -> chapter16-lenslist.p].</li>
+																	<li>Kept the preformatted code width below 80 characters to aid viewing in a reduced width screen or text only browser such as <a href="http://en.wikipedia.org/wiki/Lynx_(web_browser)">lynx <img src='images/external.gif' alt='(-&gt;)' style='border:0;height:10px;width:10px'></a>.</li>
+																	<li>Used ASCII text equivalents of the original illustrations to aid viewing in a text only browser.</li>
+																	<li>Added content such as the <a href="appendix01.html#hexld3oldrom">ZX80 HEXLD3 listing</a> and the complete <a href="appendix06.html">Draughts listing</a>.</li>
+																	<li>Enhanced content such as the more detailed HEXLD3 listings and the <a href="appendix02.html#memoryorganisation">Memory Organisation diagram</a>.</li>
+																</ul>
+																<p>I welcome feedback from readers <a href="mailto:thunorsif@hotmail.com">via email</a>. Possibly something needs correcting or maybe you've managed to debug a program that I couldn't; let me know and I'll credit you with the correction at the bottom of the relevant page.</p>
+																<p>--</p>
+																<p>Thunor - 9th August 2009</p>
+																<p>Finished PDF to HTML transcription on 8th October 2009.</p>
+																<p>&nbsp;</p>
+																<h1 align="center">Some Very Useful Links</h1>
+																<h3 align="center">ZX81</h3>
+																<p align="center">
+																<a href="http://web.ukonline.co.uk/sinclair.zx81/">Sinclair ZX81 BASIC Programming by Steven Vickers i.e. the ZX81 Manual - HTML Conversion by Robin Stuart <img src='images/external.gif' alt='(-&gt;)' style='border:0;height:10px;width:10px'></a><br>
+																<a href="http://homepages.nildram.co.uk/~agate/ROMDifference.htm">Unimproved/Improved ZX81 ROM Differences by Stephen Agate (*DEAD URL*) <img src='images/external.gif' alt='(-&gt;)' style='border:0;height:10px;width:10px'></a><br>
+																<a href="http://www.wearmouth.demon.co.uk/zx81.htm">The Complete "Improved" ZX81 ROM Assembly File <img src='images/external.gif' alt='(-&gt;)' style='border:0;height:10px;width:10px'></a><br>
+																</p>
+																<h3 align="center">ZX80</h3>
+																<p align="center">
+																<a href="http://www.xs4all.nl/~fjkraan/comp/zx80/om/zx80om.html">A Course in BASIC Programming by Hugo Davenport i.e. the ZX80 Manual <img src='images/external.gif' alt='(-&gt;)' style='border:0;height:10px;width:10px'></a><br>
+																<a href="http://www.wearmouth.demon.co.uk/zx80.htm">The Complete ZX80 ROM Assembly File <img src='images/external.gif' alt='(-&gt;)' style='border:0;height:10px;width:10px'></a><br>
+																</p>
+																<h3 align="center">Z80</h3>
+																<p align="center">
+																<a href="http://www.z80.info/decoding.htm">Decoding Z80 Opcodes - Of Use to Disassembler and Emulator Writers - by Cristian Dinu <img src='images/external.gif' alt='(-&gt;)' style='border:0;height:10px;width:10px'></a><br>
+																</p>
+																<h3 align="center">Technical Data</h3>
+																<p align="center">
+																<a href="http://nocash.emubase.de/zxdocs.htm">ZX80 and ZX81 Technical Data from the NO$ZX81 Emulator Manual <img src='images/external.gif' alt='(-&gt;)' style='border:0;height:10px;width:10px'></a><br>
+																</p>
+																<h3 align="center">The ROMs</h3>
+																<p align="center">
+																<a href="http://sz81.svn.sourceforge.net/viewvc/sz81/sz81/open8x/">The GNU GPL'd Open80 and Open81 ROM source code <img src='images/external.gif' alt='(-&gt;)' style='border:0;height:10px;width:10px'></a><br>
+																</p>
+																<h3 align="center">Emulators</h3>
+																<p align="center">
+																<a href="http://sz81.sourceforge.net/">sz81 (*nix, AmigaOS4, portable devices and alternative OS's) <img src='images/external.gif' alt='(-&gt;)' style='border:0;height:10px;width:10px'></a><br>
+																<a href="http://nocash.emubase.de/zx8.htm">NO$ZX81 (DOS, Win32, works great in DOSBox too) <img src='images/external.gif' alt='(-&gt;)' style='border:0;height:10px;width:10px'></a><br>
+																<a href="http://www.chuntey.com/">EightyOne (Win32) <img src='images/external.gif' alt='(-&gt;)' style='border:0;height:10px;width:10px'></a><br>
+																</p>
+																<h3 align="center">Sinclair Related Forums</h3>
+																<p align="center">
+																<a href="http://forum.tlienhard.com/phpBB3/index.php">forum.tlienhard.com: Das Forum fuer ZX81 und Amiga Freunde <img src='images/external.gif' alt='(-&gt;)' style='border:0;height:10px;width:10px'></a><br>
+																<a href="http://www.rwapservices.co.uk/ZX80_ZX81/forums/">RWAP Services: Sinclair ZX80 / ZX81 Forums <img src='images/external.gif' alt='(-&gt;)' style='border:0;height:10px;width:10px'></a><br>
+																<a href="http://www.worldofspectrum.org/forums/">World of Spectrum Forums <img src='images/external.gif' alt='(-&gt;)' style='border:0;height:10px;width:10px'></a><br>
+																</p>
+<!-- This is the content navigation vvvv -->	
+																<table align="center" cellpadding="0px" cellspacing="10px">
+																	<tr>
+																		<td><a href="index.html">Previous</a></td>
+																		<td>|</td>
+																		<td><a href="index.html">Contents</a></td>
+																		<td>|</td>
+																		<td><a href="foreword.html">Next</a></td>
+																	</tr>
+																</table>
+															</td>
+														</tr>
+													</table>
+												</td>
+											</tr>
+										</table>
+<!-- This is the icon links vvvv -->	
+<!-- This is the icon links ^^^^ -->	
+									</td>
+<!-- This is the content ^^^^ -->	
+								</tr>	
+							</table>
+						</td>
+					</tr>	
+					<tr>	
+						<td>&nbsp;</td>
+					</tr>	
+					<tr>	
+<!-- This is the copyright line vvvv -->	
+						<td>
+							<table width="100%" class="copyright" cellpadding="0px" cellspacing="5px">
+								<tr>
+									<td><a href="mailto:thunorsif@hotmail.com">Thunor</a> 2009-2011
+									</td>
+								</tr>	
+							</table>
+						</td>
+<!-- This is the copyright line ^^^^ -->	
+					</tr>	
+				</table>
+			</td>
+		</tr>	
+	</table>
+
+</body>
+</html>
+
+
